@@ -1,0 +1,109 @@
+//cart
+
+###
+GET http://localhost:5000/api/v1/cart HTTP/1.1
+content-type: application/application/json
+###
+GET http://localhost:5000/api/v1/cart/60be47295d77960f96cd646e HTTP/1.1
+content-type: application/application/json
+
+###
+POST http://localhost:5000/api/v1/cart HTTP/1.1
+content-type: application/json
+
+{
+    "purchasedBy": "60be47295d77960f96cd646e",
+    "items": [{ 
+        "productId": "60ba67577f17c502ea85279c",
+        "quantity": 4
+    }]
+}
+
+//user
+###
+POST http://localhost:5000/api/v1/users HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "sample 4",
+    "lastName": "man",
+    "email": "sapmle4@gmail.com",
+    "password": "1234"
+}
+
+//login
+###
+POST http://localhost:5000/api/v1/users/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "user@gmail.com",
+    "password": "123"
+}
+
+###
+GET http://localhost:5000/api/v1/users/logout HTTP/1.1
+content-type: application/json
+
+###
+
+GET http://localhost:5000/api/v1/users/isLoggedIn HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:5000/api/v1/users HTTP/1.1
+content-type: application/application/json
+
+
+###
+
+DELETE http://localhost:5000/api/v1/users/6099714511642e70ac0c8e32 HTTP/1.1
+content-type: application/application/json
+
+###
+
+
+PUT  http://localhost:5000/api/v1/users/60997d6d11642e70ac0c8e33 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Not Reb",
+    "lastName": "Not Wonder"
+}
+###
+
+//products
+POST http://localhost:5000/api/v1/products HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Sample 7",
+    "description": "Melons are low in sodium, and very low in saturated fat and cholesterol. They are a good source of dietary fiber, vitamin K, potassium, and copper, and a very good source of vitamin C and vitamin B6.",
+    "categories": "Garden",
+    "variants": ["Yellow", "Green"],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "price": 38,
+    "quantity": 230
+}
+
+###
+
+GET http://localhost:5000/api/v1/products HTTP/1.1
+content-type: application/application/json
+
+
+###
+
+DELETE http://localhost:5000/api/v1/products/609584b71d2c16124c155af4 HTTP/1.1
+content-type: application/application/json
+
+###
+
+PUT  http://localhost:5000/api/v1/products/60a5022b2e6eca1844077767 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Not Melon",
+    "description": "Love Nature" ,
+    "categories": ["Mountains", "Tulips", "Ice Bergs"]
+}
