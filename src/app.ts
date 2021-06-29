@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser())
 app.use( cors({
-    origin: ['http://localhost:3000'],
+    origin: "https://fervent-nobel-3ec6f0.netlify.app",
     credentials: true,
 }))
 
