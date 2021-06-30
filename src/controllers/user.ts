@@ -89,7 +89,7 @@ export const logOutUser = async (
     res.cookie("token", "", {
       expires: new Date(1),
       path: '/'
-    } )
+    } ).send()
 }
 
 export const updateUser = async (
