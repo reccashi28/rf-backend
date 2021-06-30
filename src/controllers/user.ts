@@ -85,14 +85,11 @@ export const logOutUser = async (
   next: NextFunction
 ) => {
     console.log("logout sucessfully")
-    res.status(200).clearCookie('token', { domain: 'dummy-store-backend.herokuapp.com', path: '/'}).send()
-    // res.cookie("token", "expiredtoken", {
-    //   expires: new Date(Date.now() + 1000),
-    //   secure: true,
-    //   sameSite: 'none',
-    //   httpOnly: true,
-    //   path: '/'
-    // } )
+    // res.status(200).clearCookie('token', { domain: 'dummy-store-backend.herokuapp.com', path: '/'}).send()
+    res.cookie("token", "", {
+      expires: new Date(1),
+      path: '/'
+    } )
 }
 
 export const updateUser = async (
