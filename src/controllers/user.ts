@@ -86,7 +86,7 @@ export const logOutUser = async (
 ) => {
     console.log("logout sucessfully")
     // res.status(200).clearCookie('token').send()
-    res.cookie("jwt", "expiredtoken", {
+    res.cookie("token", "expiredtoken", {
       expires: new Date(Date.now() + 1000),
       secure: true,
       sameSite: 'none',
