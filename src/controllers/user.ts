@@ -85,14 +85,14 @@ export const logOutUser = async (
   next: NextFunction
 ) => {
     console.log("logout sucessfully")
-    // res.status(200).clearCookie('token').send()
-    res.cookie("token", "expiredtoken", {
-      expires: new Date(Date.now() + 1000),
-      secure: true,
-      sameSite: 'none',
-      httpOnly: true,
-      path: '/'
-    } )
+    res.status(200).clearCookie('token').send()
+    // res.cookie("token", "expiredtoken", {
+    //   expires: new Date(Date.now() + 1000),
+    //   secure: true,
+    //   sameSite: 'none',
+    //   httpOnly: true,
+    //   path: '/'
+    // } )
 }
 
 export const updateUser = async (
@@ -156,7 +156,6 @@ export const isLoggedIn = async (
     // console.log(req)
 
     const token = req.cookies.token;
-    console.log(token, "still signedin")
     if(!token) {
       return res.json(false) 
     } else {
