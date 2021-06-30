@@ -7,6 +7,7 @@ import {
   BadRequestError,
   InternalServerError,
 } from '../helpers/apiError'
+import { strict } from 'node:assert';
   
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
@@ -60,7 +61,9 @@ export const logInUser = async (
 
     if(userExist.role === "admin") {
       res.cookie('token', token, {
-        httpOnly: true
+        httpOnly: true,
+        sameSite: true,
+        secure: true
       }).send({ role: "admin", name: userName, userId: userExist._id})
     } else {
       res.cookie('token', token, {
