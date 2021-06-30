@@ -66,7 +66,9 @@ export const logInUser = async (
       }).send({ role: "admin", name: userName, userId: userExist._id})
     } else {
       res.cookie('token', token, {
-        httpOnly: true
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true
       }).send({ role: "user", name: userName, userId: userExist._id})
     }
    
