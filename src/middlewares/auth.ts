@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 export const userAuth = (req: Request, res: Response, next: NextFunction) => {
     try{
         const token = req.body.token || req.query.token || req.cookies.token || req.headers['x-access-token'];
-
+        console.log(token, "does token exist with login?")
         if(!token) return res.redirect('/')
 
         const verified = jwt.verify(token, process.env.JWT_SECRET)
