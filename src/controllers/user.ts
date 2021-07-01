@@ -87,8 +87,9 @@ export const logOutUser = async (
     console.log("logout sucessfully")
     // res.status(200).clearCookie('token', { domain: 'dummy-store-backend.herokuapp.com', path: '/'}).send()
     res.cookie("token", "", {
+      domain: 'dummy-store-backend.herokuapp.com',
       expires: new Date(1),
-      path: '/'
+      path: '/',
     } ).send()
 }
 
