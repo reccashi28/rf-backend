@@ -53,8 +53,7 @@ export const logInUser = async (
       role: userExist.role,
       name: userExist.firstName
     },
-      process.env.JWT_SECRET,
-      {expiresIn: '1d'}
+      process.env.JWT_SECRET
     )
 
     console.log('login success', token)
@@ -63,13 +62,15 @@ export const logInUser = async (
       res.cookie('token', token, {
         httpOnly: true,
         sameSite: 'none',
-        secure: true
+        secure: true,
+        expires: new Date(Date.now() + 8 * 3600000)
       }).send({ role: "admin", name: userName, userId: userExist._id})
     } else {
       res.cookie('token', token, {
         httpOnly: true,
         sameSite: 'none',
-        secure: true
+        secure: true,
+        expires: new Date(Date.now() + 8 * 3600000)
       }).send({ role: "user", name: userName, userId: userExist._id})
     }
    
@@ -91,10 +92,11 @@ export const logOutUser = async (
     //   expires: new Date(1),
     //   path: '/',
     // } ).send()
-    res.cookie('token', '', {
-      expires: new Date(Date.now() + 5 * 1000),
+    res.clearCookie('token', { 
       httpOnly: true,
-  }).send()
+      sameSite: 'none',
+      secure: true,
+    }).send()
 }
 
 export const updateUser = async (
